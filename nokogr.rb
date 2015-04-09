@@ -5,8 +5,32 @@ require 'nokogiri'
 require 'mecab'
 
 
-doc = Nokogiri::HTML( open( "http://headlines.yahoo.co.jp/hl?a=20150201-00002622-bengocom-soci" ) )
-#doc = Nokogiri::HTML( open( "http://www.yahoo.co.jp" ) )
+def get_html( url )
+	doc = Nokogiri::HTML( open( url ) )
+	return doc
+end
+
+class Document
+	@title
+	@content
+	@url
+
+	def open_html( url )
+		@doc = Nokogiri::HTML( open( url ) )
+
+		if @doc != nil 
+			@title = @doc.title
+			@url = url	
+		end
+	
+		return @doc
+	end	
+
+	
+
+end
+
+
 
 #doc.xpath( '//p/a' ).each do |node|
 #  pタグを見付しだい中身をnodeに入れる
