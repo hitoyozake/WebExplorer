@@ -26,12 +26,14 @@ class Document
 		return @doc
 	end	
 
-	
+	def get_title
+		return @title
+	end
 
 end
 
 
-
+def foo
 #doc.xpath( '//p/a' ).each do |node|
 #  pタグを見付しだい中身をnodeに入れる
 #	puts node.text
@@ -52,10 +54,12 @@ doc.xpath( '//p[@class="ynDetailText"]' ).each do |node|
 	#puts node.text
 end
 
+end
 
-#puts doc.at('body').content
+doc = Document.new
 
-#puts doc.body
+doc.open_html("https://www.google.co.jp")
+p doc.get_title
 
 
 
