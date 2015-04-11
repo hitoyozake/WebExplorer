@@ -58,7 +58,13 @@ end
 
 doc = Document.new
 
-doc.open_html("https://www.google.co.jp")
+url = "https://www.google.co.jp"
+
+if ARGV.length > 0 
+	url = ARGV[0]
+end
+
+doc.open_html(url)
 p doc.get_title
 
 
