@@ -20,7 +20,7 @@ class Document
 
 		if @doc != nil 
 			@title = @doc.title
-			@url = url	
+			@url = url
 		end
 	
 		return @doc
@@ -30,7 +30,17 @@ class Document
 		return @title
 	end
 
+	def analyze_rss() 
+		puts "hoge"
+		
+		@doc.xpath( '//rss/channel/item' ).each do |node|
+			puts node.text		
+	#puts node.text
+		end
+	end
 end
+
+
 
 
 def foo
@@ -38,7 +48,7 @@ def foo
 #  pタグを見付しだい中身をnodeに入れる
 #	puts node.text
 #end
-#
+i#
 
 mecab = MeCab::Tagger.new()
 
@@ -65,7 +75,6 @@ if ARGV.length > 0
 end
 
 doc.open_html(url)
-p doc.get_title
-
+doc.analyze_rss()
 
 
