@@ -5,11 +5,6 @@ require 'nokogiri'
 require 'mecab'
 
 
-def get_html( url )
-	doc = Nokogiri::HTML( open( url ) )
-	return doc
-end
-
 class Document
 	@title
 	@content
